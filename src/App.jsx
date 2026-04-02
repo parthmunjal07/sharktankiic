@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./index.css";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react";
 
 
 export default function App() {
@@ -16,7 +16,6 @@ export default function App() {
 
   return (
     <>
-    <Analytics />
       <div
         role="region"
         aria-label="Notifications (F8)"
@@ -41,37 +40,40 @@ export default function App() {
           style={isScrolled ? { backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)" } : {}}
         >
           <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-4 relative">
-            <a href="#" className="font-heading text-xl font-bold uppercase relative z-10">
-              <span className="text-gradient-gold">Shark</span>{" "}
-              <span className="text-foreground">Tank</span>
-            </a>
-            
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-4 z-10">
-              <img
-                src="/assets/iic-logo.png"
-                alt="IIC Logo"
-                className="h-10 md:h-12 object-contain bg-white rounded-md p-1 shadow-sm"
-              />
+            <div className="flex items-center gap-3 relative z-10">
               <img
                 src="/assets/jcbose-logo2.png"
                 alt="JC Bose University"
-                className="h-10 md:h-12 object-contain bg-white rounded-md p-1 shadow-sm"
+                className="object-contain bg-white rounded-md p-1 shadow-sm"
+                style={{ height: "55px", width: "auto" }}
               />
+              <a href="#" className="font-heading text-2xl p-4 font-bold uppercase">
+                <span className="text-gradient-gold">Shark</span>{" "}
+                <span className="text-foreground">Tank</span>
+              </a>
             </div>
 
-            <div className="hidden sm:flex items-center gap-6 relative z-10">
-              <a
-                href="#about"
-                className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                About
-              </a>
-              <a
-                href="#register"
-                className="px-5 py-2 font-heading text-sm uppercase tracking-wider rounded-md bg-primary text-primary-foreground hover:opacity-90 transition-all"
-              >
-                Register
-              </a>
+            <div className="flex items-center gap-6 relative z-10">
+              <div className="hidden sm:flex items-center gap-6">
+                <a
+                  href="#about"
+                  className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  About
+                </a>
+                <a
+                  href="#register"
+                  className="px-5 py-2 font-heading text-sm uppercase tracking-wider rounded-md bg-primary text-primary-foreground hover:opacity-90 transition-all"
+                >
+                  Register
+                </a>
+              </div>
+              <img
+                src="/assets/iic-logo.png"
+                alt="IIC Logo"
+                className="object-contain bg-white rounded-md p-1 shadow-sm"
+                style={{ height: "55px", width: "auto" }}
+              />
             </div>
           </div>
         </nav>
