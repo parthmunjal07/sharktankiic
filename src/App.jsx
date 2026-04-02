@@ -1,6 +1,17 @@
+import { useState, useEffect } from "react";
 import "./index.css";
 
 export default function App() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <div
@@ -22,7 +33,10 @@ export default function App() {
         aria-atomic="false"
       ></section>
       <div className="min-h-screen bg-background">
-        <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/50 border-b border-white/10" style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
+        <nav
+          className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-black/50 border-b border-white/10" : "bg-transparent border-transparent"}`}
+          style={isScrolled ? { backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)" } : {}}
+        >
           <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-4 relative">
             <a href="#" className="font-heading text-xl font-bold uppercase relative z-10">
               <span className="text-gradient-gold">Shark</span>{" "}
