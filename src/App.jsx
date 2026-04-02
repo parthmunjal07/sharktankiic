@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import "./index.css";
+import { Analytics } from "@vercel/analytics/next"
+
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,6 +16,7 @@ export default function App() {
 
   return (
     <>
+    <Analytics />
       <div
         role="region"
         aria-label="Notifications (F8)"
