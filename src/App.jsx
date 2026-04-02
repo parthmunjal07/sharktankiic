@@ -16,6 +16,7 @@ export default function App() {
 
   return (
     <>
+    <Analytics />
       <div
         role="region"
         aria-label="Notifications (F8)"
